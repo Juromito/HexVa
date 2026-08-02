@@ -52,17 +52,6 @@ image.bmp
 
 Every file produces a unique image depending on its binary contents.
 
-## What I learned
-
-This project helped me understand:
-
-- Binary file manipulation
-- BMP file structure
-- Little-endian byte order
-- Pixel encoding
-- Row padding
-- Reading and writing binary data in Python
-
 ## Future improvements
 
 - GUI version
