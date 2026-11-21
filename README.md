@@ -89,7 +89,7 @@ Creating a PNG requires decoding the temporary BMP image in memory. Very large s
 
 ## License
 
-No license has been selected for this repository yet. Add a `LICENSE` file once you have decided how others may use the project.
+HexVa is licensed under the [MIT License](LICENSE).
 
 ## Project
 
