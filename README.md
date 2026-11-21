@@ -1,64 +1,96 @@
+<p align="center">
+  <img src="assets/icon512.png" alt="HexVa logo" width="112">
+</p>
 
-![Example visualization](examples/LoremIpsum.bmp)
-# HexVa
+<h1 align="center">HexVa</h1>
 
-A simple Python project that converts **any file** into a **24-bit BMP image**
+<p align="center">
+  A desktop utility for turning file bytes into bitmap images.
+  <br>
+  <a href="https://github.com/Juromito/HexVa">GitHub repository</a>
+</p>
+
+---
+
+HexVa reads a file as binary data and maps its bytes to the pixel values of a square, 24-bit image. Use it to explore the visual patterns hidden in documents, archives, media, and other files.
 
 ## Features
 
-- Converts any file into a BMP image
-- Automatic image size calculation
-- Manually generated BMP header
-- Correct BMP row padding
-- Pure Python (no external libraries)
-- Fast and lightweight
+- Convert local files within BMP's size limits to **BMP** or **PNG**.
+- Preview the generated image and its dimensions.
+- Choose **System**, **Light**, or **Dark** appearance.
+- Follow conversion progress while the interface stays responsive.
+- Keep file processing on your computer; HexVa does not upload source files.
 
-## How it works
+## Example images
 
-The program reads a file in binary mode and groups every **3 bytes** into a single pixel.
+These sample BMP files are included in [`examples/`](examples/):
 
-```
-Byte 1  Byte 2  Byte 3
-   ↓       ↓       ↓
-      One Pixel
-```
+| Example | Dimensions | File |
+| --- | ---: | --- |
+| Lorem Ipsum | 104 × 104 px | [LoremIpsum.bmp](examples/LoremIpsum.bmp) |
+| Music | 2621 × 2621 px | [music.bmp](examples/music.bmp) |
 
-The image dimensions are automatically calculated to create a nearly square image.
-
-If the file doesn't end on a complete pixel, the remaining bytes are filled with `00`.
-
-Finally, the program writes a valid **24-bit BMP** file, including the BMP and DIB headers.
+Open an example in an image viewer, or select it as a source file in HexVa.
 
 ## Requirements
 
-- A way to execute files :)
+- Python 3.10 or newer
+- PySide6 (installed from `requirements.txt`)
 
-## Usage
+## Install
 
-(This program only works on Linux/MacOS or any unix-based OS) Please run:
+Clone the repository and open a terminal in the project folder:
+
 ```bash
-chmod +x hexva
+git clone https://github.com/Juromito/HexVa.git
+cd HexVa
+python -m venv .venv
 ```
-And then:
+
+Activate the virtual environment:
+
 ```bash
-./hexva
+# Linux / macOS
+source .venv/bin/activate
+
+# Windows PowerShell
+.venv\Scripts\Activate.ps1
 ```
 
-The output image will be saved as:
+Install the dependencies:
 
+```bash
+python -m pip install -r requirements.txt
 ```
-image.bmp
+
+## Run
+
+```bash
+python main.py
 ```
 
-Every file produces a unique image depending on its binary contents.
+Choose a source file, select an output format, choose where to save the image, then select **Convert and save**. The result appears in the preview. Theme and format preferences are remembered between launches.
 
-## Future improvements
+## Output formats
 
-- GUI version
-- Drag & drop support
-- PNG export
-- Make a decoder ;)
+| Format | Description |
+| --- | --- |
+| **BMP** | Uncompressed 24-bit image. It is simple and widely supported, but usually takes more disk space. |
+| **PNG** | Lossless compression of the generated image pixels. Its size depends on the data and may be larger than the BMP for incompressible content. |
+
+## How the conversion works
+
+Bytes are written into the image as three-byte pixel values. The image is square; unused pixels and an incomplete final pixel are padded with zeroes. BMP row padding is added where required by the format.
+
+HexVa is a visualization tool, not an archival or backup format. An output image alone does not contain enough information to reliably reconstruct the original file.
+
+Creating a PNG requires decoding the temporary BMP image in memory. Very large source files may therefore require substantial available memory.
 
 ## License
 
-This project is licensed under the MIT License.
+No license has been selected for this repository yet. Add a `LICENSE` file once you have decided how others may use the project.
+
+## Project
+
+[github.com/Juromito/HexVa](https://github.com/Juromito/HexVa)
