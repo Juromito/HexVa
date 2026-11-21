@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1024"
+     height="1024"
+     viewBox="0 0 1024 1024">
+
+  <defs>
+
+    <filter id="shadow"
+            x="-20%"
+            y="-20%"
+            width="140%"
+            height="140%">
+      <feDropShadow
+        dx="0"
+        dy="18"
+        stdDeviation="18"
+        flood-color="#000000"
+        flood-opacity="0.35"/>
+    </filter>
+
+    <clipPath id="rgbPixel">
+      <rect
+        width="80"
+        height="80"
+        rx="18"
+        ry="18"/>
+    </clipPath>
+
+    <g id="pixel" clip-path="url(#rgbPixel)">
+
+      <rect
+        width="26.6667"
+        height="80"
+        fill="#FF3B30"/>
+
+      <rect
+        x="26.6667"
+        width="26.6667"
+        height="80"
+        fill="#34C759"/>
+
+      <rect
+        x="53.3334"
+        width="26.6666"
+        height="80"
+        fill="#007AFF"/>
+
+    </g>
+
+  </defs>
+
+  <!-- Solid icon background -->
+  <rect
+    x="0"
+    y="0"
+    width="1024"
+    height="1024"
+    fill="#1F2328"/>
+
+
+  <rect
+    x="32"
+    y="32"
+    width="960"
+    height="960"
+    rx="210"
+    fill="#1F2328"
+    filter="url(#shadow)"
+  />
+
+  <use href="#pixel" x="272" y="172"/>
+  <use href="#pixel" x="672" y="172"/>
+
+  <use href="#pixel" x="272" y="272"/>
+  <use href="#pixel" x="672" y="272"/>
+
+  <use href="#pixel" x="272" y="372"/>
+  <use href="#pixel" x="672" y="372"/>
+
+  <use href="#pixel" x="272" y="472"/>
+  <use href="#pixel" x="372" y="472"/>
+  <use href="#pixel" x="472" y="472"/>
+  <use href="#pixel" x="572" y="472"/>
+  <use href="#pixel" x="672" y="472"/>
+
+  <use href="#pixel" x="272" y="572"/>
+  <use href="#pixel" x="672" y="572"/>
+
+  <use href="#pixel" x="272" y="672"/>
+  <use href="#pixel" x="672" y="672"/>
+
+  <use href="#pixel" x="272" y="772"/>
+  <use href="#pixel" x="672" y="772"/>
+
+</svg>
